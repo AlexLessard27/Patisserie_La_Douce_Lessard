@@ -55,5 +55,17 @@ namespace Travail_Patisserie_LaDouche_Lessard
                 choisirEmployeComboBox.DataSource = context.Employes.ToList();
             }
         }
+
+        private void choisirEmployeButton_Click(object sender, EventArgs e)
+        {
+            using (var context = new LaDouceLessardContext())
+            {
+                var employeSelectionne = choisirEmployeComboBox.SelectedItem as Employe;
+                if (employeSelectionne != null)
+                {
+                    MessageBox.Show($"Employé sélectionné : {employeSelectionne.NomComplet}");
+                }
+            }
+        }
     }
 }

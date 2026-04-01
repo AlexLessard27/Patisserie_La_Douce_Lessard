@@ -77,7 +77,7 @@
             rechercherIngredientButton.TabIndex = 6;
             rechercherIngredientButton.Text = "Rechercher";
             rechercherIngredientButton.UseVisualStyleBackColor = true;
-            rechercherIngredientButton.Click += rechercherPieceButton_Click;
+            rechercherIngredientButton.Click += rechercherIngredientButton_Click;
             // 
             // numeroPieceTextBox
             // 

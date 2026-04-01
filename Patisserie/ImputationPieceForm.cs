@@ -18,7 +18,7 @@ namespace Travail_Patisserie_LaDouche_Lessard
             InitializeComponent();
         }
 
-        private void rechercherPieceButton_Click(object sender, EventArgs e)
+        private void rechercherIngredientButton_Click(object sender, EventArgs e)
         {
             using (var context = new LaDouceLessardContext())
             {

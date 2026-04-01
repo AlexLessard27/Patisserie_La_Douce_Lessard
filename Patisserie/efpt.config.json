@@ -75,15 +75,15 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[AjouterImputation]",
+         "Name": "[dbo].[Pro_AjouterImputationRecette]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[ObtenirCommandesParIngredient]",
+         "Name": "[dbo].[Pro_ObtenirCommandesParRecette]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[RechercherIngredients]",
+         "Name": "[dbo].[Pro_RechercherRecettes]",
          "ObjectType": 1
       }
    ],

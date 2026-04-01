@@ -6,16 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Patisserie.Models
 {
-    public partial class RechercherIngredientsResult
+    public partial class Pro_RechercherRecettesResult
     {
-        public int Id_Ingredient { get; set; }
+        public int Id_Recette { get; set; }
         [StringLength(200)]
-        public string Numero_identification { get; set; }
+        public string Nom { get; set; }
         [StringLength(200)]
         public string Description { get; set; }
-        [Column("QuantiteStockTotale", TypeName = "decimal(38,2)")]
-        public decimal QuantiteStockTotale { get; set; }
-        [StringLength(8000)]
-        public string Magasins { get; set; }
     }
 }

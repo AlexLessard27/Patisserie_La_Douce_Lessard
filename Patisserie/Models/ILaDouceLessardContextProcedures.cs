@@ -13,8 +13,8 @@ namespace Patisserie.Models
 {
     public partial interface ILaDouceLessardContextProcedures
     {
-        Task<int> AjouterImputationAsync(DateOnly? date_Imputation, decimal? quantite_Reservee, int? id_Commande, int? id_Employe, int? id_Recette, int? id_Ingredient, int? id_Magasin, decimal? quantite_Imputee, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<List<ObtenirCommandesParIngredientResult>> ObtenirCommandesParIngredientAsync(int? id_Ingredient, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<List<RechercherIngredientsResult>> RechercherIngredientsAsync(string recherche, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> Pro_AjouterImputationRecetteAsync(DateOnly? date_Imputation, decimal? quantite_Reservee, int? id_Commande, int? id_Employe, int? id_Recette, int? id_Magasin, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<Pro_ObtenirCommandesParRecetteResult>> Pro_ObtenirCommandesParRecetteAsync(int? id_Recette, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<Pro_RechercherRecettesResult>> Pro_RechercherRecettesAsync(string recherche, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

@@ -43,7 +43,7 @@ namespace Patisserie.Models
             _context = context;
         }
 
-        public virtual async Task<int> AjouterImputationAsync(DateOnly? date_Imputation, decimal? quantite_Reservee, int? id_Commande, int? id_Employe, int? id_Recette, int? id_Ingredient, int? id_Magasin, decimal? quantite_Imputee, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<int> Pro_AjouterImputationRecetteAsync(DateOnly? date_Imputation, decimal? quantite_Reservee, int? id_Commande, int? id_Employe, int? id_Recette, int? id_Magasin, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -88,34 +88,20 @@ namespace Patisserie.Models
                 },
                 new SqlParameter
                 {
-                    ParameterName = "Id_Ingredient",
-                    Value = id_Ingredient ?? Convert.DBNull,
-                    SqlDbType = System.Data.SqlDbType.Int,
-                },
-                new SqlParameter
-                {
                     ParameterName = "Id_Magasin",
                     Value = id_Magasin ?? Convert.DBNull,
                     SqlDbType = System.Data.SqlDbType.Int,
                 },
-                new SqlParameter
-                {
-                    ParameterName = "Quantite_Imputee",
-                    Precision = 10,
-                    Scale = 2,
-                    Value = quantite_Imputee ?? Convert.DBNull,
-                    SqlDbType = System.Data.SqlDbType.Decimal,
-                },
                 parameterreturnValue,
             };
-            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[AjouterImputation] @Date_Imputation = @Date_Imputation, @Quantite_Reservee = @Quantite_Reservee, @Id_Commande = @Id_Commande, @Id_Employe = @Id_Employe, @Id_Recette = @Id_Recette, @Id_Ingredient = @Id_Ingredient, @Id_Magasin = @Id_Magasin, @Quantite_Imputee = @Quantite_Imputee", sqlParameters, cancellationToken);
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[Pro_AjouterImputationRecette] @Date_Imputation = @Date_Imputation, @Quantite_Reservee = @Quantite_Reservee, @Id_Commande = @Id_Commande, @Id_Employe = @Id_Employe, @Id_Recette = @Id_Recette, @Id_Magasin = @Id_Magasin", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;
         }
 
-        public virtual async Task<List<ObtenirCommandesParIngredientResult>> ObtenirCommandesParIngredientAsync(int? id_Ingredient, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<List<Pro_ObtenirCommandesParRecetteResult>> Pro_ObtenirCommandesParRecetteAsync(int? id_Recette, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -128,20 +114,20 @@ namespace Patisserie.Models
             {
                 new SqlParameter
                 {
-                    ParameterName = "Id_Ingredient",
-                    Value = id_Ingredient ?? Convert.DBNull,
+                    ParameterName = "Id_Recette",
+                    Value = id_Recette ?? Convert.DBNull,
                     SqlDbType = System.Data.SqlDbType.Int,
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.SqlQueryAsync<ObtenirCommandesParIngredientResult>("EXEC @returnValue = [dbo].[ObtenirCommandesParIngredient] @Id_Ingredient = @Id_Ingredient", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<Pro_ObtenirCommandesParRecetteResult>("EXEC @returnValue = [dbo].[Pro_ObtenirCommandesParRecette] @Id_Recette = @Id_Recette", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;
         }
 
-        public virtual async Task<List<RechercherIngredientsResult>> RechercherIngredientsAsync(string recherche, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<List<Pro_RechercherRecettesResult>> Pro_RechercherRecettesAsync(string recherche, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -161,7 +147,7 @@ namespace Patisserie.Models
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.SqlQueryAsync<RechercherIngredientsResult>("EXEC @returnValue = [dbo].[RechercherIngredients] @Recherche = @Recherche", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<Pro_RechercherRecettesResult>("EXEC @returnValue = [dbo].[Pro_RechercherRecettes] @Recherche = @Recherche", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

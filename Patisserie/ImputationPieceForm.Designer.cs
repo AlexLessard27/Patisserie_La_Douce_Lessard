@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             rechercherPieceGroupBox = new GroupBox();
-            rechercherIngredientButton = new Button();
+            rechercherRecetteButton = new Button();
             numeroPieceTextBox = new TextBox();
             pieceDesireDGV = new DataGridView();
             label2 = new Label();
@@ -53,7 +53,7 @@
             // 
             // rechercherPieceGroupBox
             // 
-            rechercherPieceGroupBox.Controls.Add(rechercherIngredientButton);
+            rechercherPieceGroupBox.Controls.Add(rechercherRecetteButton);
             rechercherPieceGroupBox.Controls.Add(numeroPieceTextBox);
             rechercherPieceGroupBox.Controls.Add(pieceDesireDGV);
             rechercherPieceGroupBox.Controls.Add(label2);
@@ -66,22 +66,22 @@
             rechercherPieceGroupBox.Size = new Size(887, 345);
             rechercherPieceGroupBox.TabIndex = 0;
             rechercherPieceGroupBox.TabStop = false;
-            rechercherPieceGroupBox.Text = "Rechercher une pièce avec ou sans scanneur";
+            rechercherPieceGroupBox.Text = "Rechercher une recette avec ou sans scanneur";
             // 
-            // rechercherIngredientButton
+            // rechercherRecetteButton
             // 
-            rechercherIngredientButton.Location = new Point(534, 33);
-            rechercherIngredientButton.Margin = new Padding(3, 4, 3, 4);
-            rechercherIngredientButton.Name = "rechercherIngredientButton";
-            rechercherIngredientButton.Size = new Size(173, 39);
-            rechercherIngredientButton.TabIndex = 6;
-            rechercherIngredientButton.Text = "Rechercher";
-            rechercherIngredientButton.UseVisualStyleBackColor = true;
-            rechercherIngredientButton.Click += rechercherIngredientButton_Click;
+            rechercherRecetteButton.Location = new Point(552, 35);
+            rechercherRecetteButton.Margin = new Padding(3, 4, 3, 4);
+            rechercherRecetteButton.Name = "rechercherRecetteButton";
+            rechercherRecetteButton.Size = new Size(173, 39);
+            rechercherRecetteButton.TabIndex = 6;
+            rechercherRecetteButton.Text = "Rechercher";
+            rechercherRecetteButton.UseVisualStyleBackColor = true;
+            rechercherRecetteButton.Click += rechercherRecetteButton_Click;
             // 
             // numeroPieceTextBox
             // 
-            numeroPieceTextBox.Location = new Point(183, 33);
+            numeroPieceTextBox.Location = new Point(201, 35);
             numeroPieceTextBox.Margin = new Padding(3, 4, 3, 4);
             numeroPieceTextBox.Name = "numeroPieceTextBox";
             numeroPieceTextBox.Size = new Size(326, 34);
@@ -102,18 +102,18 @@
             label2.AutoSize = true;
             label2.Location = new Point(21, 83);
             label2.Name = "label2";
-            label2.Size = new Size(258, 28);
+            label2.Size = new Size(272, 28);
             label2.TabIndex = 3;
-            label2.Text = "Sélectionner la pièce désirée";
+            label2.Text = "Sélectionner la recette désirée";
             // 
             // numeroPieceLabel
             // 
             numeroPieceLabel.AutoSize = true;
             numeroPieceLabel.Location = new Point(21, 33);
             numeroPieceLabel.Name = "numeroPieceLabel";
-            numeroPieceLabel.Size = new Size(171, 28);
+            numeroPieceLabel.Size = new Size(174, 28);
             numeroPieceLabel.TabIndex = 2;
-            numeroPieceLabel.Text = "Numéro de pièce :";
+            numeroPieceLabel.Text = "Recherche recette :";
             // 
             // commandeGroupBox
             // 
@@ -221,7 +221,6 @@
             ajoutezImputationButton.TabIndex = 4;
             ajoutezImputationButton.Text = "Ajouter imputation";
             ajoutezImputationButton.UseVisualStyleBackColor = true;
-            ajoutezImputationButton.Click += ajoutezImputationButton_Click;
             // 
             // ImputationPieceForm
             // 
@@ -252,7 +251,7 @@
         #endregion
 
         private GroupBox rechercherPieceGroupBox;
-        private Button rechercherIngredientButton;
+        private Button rechercherRecetteButton;
         private TextBox numeroPieceTextBox;
         private DataGridView pieceDesireDGV;
         private Label label2;

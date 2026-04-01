@@ -1,14 +1,6 @@
 ﻿using Patisserie.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+// A refaire avec des procédure stockées.
 namespace Travail_Patisserie_LaDouche_Lessard
 {
     public partial class ImputationPieceForm : Form
@@ -18,7 +10,7 @@ namespace Travail_Patisserie_LaDouche_Lessard
             InitializeComponent();
         }
 
-        private void rechercherIngredientButton_Click(object sender, EventArgs e)
+        private void rechercherRecetteButton_Click(object sender, EventArgs e)
         {
             using (var context = new LaDouceLessardContext())
             {

@@ -73,6 +73,18 @@
       {
          "Name": "[dbo].[Utilise]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AjouterImputation]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ObtenirCommandesParIngredient]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[RechercherIngredients]",
+         "ObjectType": 1
       }
    ],
    "UiHint": null,

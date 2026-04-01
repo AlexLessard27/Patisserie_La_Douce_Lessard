@@ -39,11 +39,11 @@
             choisirCommandeComboBox = new ComboBox();
             employeGroupBox = new GroupBox();
             choisirEmployeLabel = new Label();
-            comboBox1 = new ComboBox();
+            choisirEmployeComboBox = new ComboBox();
             choisirEmployeButton = new Button();
             quantiteLabel = new Label();
             quatiteNUD = new NumericUpDown();
-            button1 = new Button();
+            ajoutezImputationButton = new Button();
             rechercherPieceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pieceDesireDGV).BeginInit();
             commandeGroupBox.SuspendLayout();
@@ -128,6 +128,7 @@
             commandeGroupBox.TabIndex = 1;
             commandeGroupBox.TabStop = false;
             commandeGroupBox.Text = "Commande";
+            commandeGroupBox.Enter += commandeGroupBox_Enter;
             // 
             // choisirCommandeLabel
             // 
@@ -150,7 +151,7 @@
             // employeGroupBox
             // 
             employeGroupBox.Controls.Add(choisirEmployeLabel);
-            employeGroupBox.Controls.Add(comboBox1);
+            employeGroupBox.Controls.Add(choisirEmployeComboBox);
             employeGroupBox.Controls.Add(choisirEmployeButton);
             employeGroupBox.Font = new Font("Segoe UI", 12F);
             employeGroupBox.Location = new Point(14, 500);
@@ -161,6 +162,7 @@
             employeGroupBox.TabIndex = 1;
             employeGroupBox.TabStop = false;
             employeGroupBox.Text = "Employé";
+            employeGroupBox.Enter += employeGroupBox_Enter;
             // 
             // choisirEmployeLabel
             // 
@@ -171,14 +173,14 @@
             choisirEmployeLabel.TabIndex = 2;
             choisirEmployeLabel.Text = "Choisir un employé :";
             // 
-            // comboBox1
+            // choisirEmployeComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(245, 37);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(372, 36);
-            comboBox1.TabIndex = 1;
+            choisirEmployeComboBox.FormattingEnabled = true;
+            choisirEmployeComboBox.Location = new Point(245, 37);
+            choisirEmployeComboBox.Margin = new Padding(3, 4, 3, 4);
+            choisirEmployeComboBox.Name = "choisirEmployeComboBox";
+            choisirEmployeComboBox.Size = new Size(372, 36);
+            choisirEmployeComboBox.TabIndex = 1;
             // 
             // choisirEmployeButton
             // 
@@ -189,6 +191,7 @@
             choisirEmployeButton.TabIndex = 0;
             choisirEmployeButton.Text = "Choisir un employé";
             choisirEmployeButton.UseVisualStyleBackColor = true;
+            choisirEmployeButton.Click += choisirEmployeButton_Click;
             // 
             // quantiteLabel
             // 
@@ -208,23 +211,24 @@
             quatiteNUD.Size = new Size(137, 27);
             quatiteNUD.TabIndex = 3;
             // 
-            // button1
+            // ajoutezImputationButton
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(297, 633);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 47);
-            button1.TabIndex = 4;
-            button1.Text = "Ajouter imputation";
-            button1.UseVisualStyleBackColor = true;
+            ajoutezImputationButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ajoutezImputationButton.Location = new Point(297, 633);
+            ajoutezImputationButton.Margin = new Padding(3, 4, 3, 4);
+            ajoutezImputationButton.Name = "ajoutezImputationButton";
+            ajoutezImputationButton.Size = new Size(200, 47);
+            ajoutezImputationButton.TabIndex = 4;
+            ajoutezImputationButton.Text = "Ajouter imputation";
+            ajoutezImputationButton.UseVisualStyleBackColor = true;
+            ajoutezImputationButton.Click += ajoutezImputationButton_Click;
             // 
             // ImputationPieceForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 701);
-            Controls.Add(button1);
+            Controls.Add(ajoutezImputationButton);
             Controls.Add(quatiteNUD);
             Controls.Add(quantiteLabel);
             Controls.Add(employeGroupBox);
@@ -258,10 +262,10 @@
         private Label choisirCommandeLabel;
         private ComboBox choisirCommandeComboBox;
         private Label choisirEmployeLabel;
-        private ComboBox comboBox1;
+        private ComboBox choisirEmployeComboBox;
         private Button choisirEmployeButton;
         private Label quantiteLabel;
         private NumericUpDown quatiteNUD;
-        private Button button1;
+        private Button ajoutezImputationButton;
     }
 }

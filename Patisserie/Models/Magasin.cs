@@ -22,5 +22,8 @@ public partial class Magasin
     public string Nom { get; set; }
 
     [InverseProperty("IdMagasinNavigation")]
+    public virtual ICollection<ImputationIngredient> ImputationIngredients { get; set; } = new List<ImputationIngredient>();
+
+    [InverseProperty("IdMagasinNavigation")]
     public virtual ICollection<QuantiteStock> QuantiteStocks { get; set; } = new List<QuantiteStock>();
 }

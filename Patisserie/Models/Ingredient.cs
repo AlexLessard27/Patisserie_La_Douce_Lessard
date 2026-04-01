@@ -31,6 +31,9 @@ public partial class Ingredient
     public virtual ICollection<Compose> Composes { get; set; } = new List<Compose>();
 
     [InverseProperty("IdIngredientNavigation")]
+    public virtual ICollection<ImputationIngredient> ImputationIngredients { get; set; } = new List<ImputationIngredient>();
+
+    [InverseProperty("IdIngredientNavigation")]
     public virtual ICollection<QuantiteStock> QuantiteStocks { get; set; } = new List<QuantiteStock>();
 
     [ForeignKey("IdIngredient")]

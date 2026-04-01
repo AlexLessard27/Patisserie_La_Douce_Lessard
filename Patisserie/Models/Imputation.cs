@@ -41,4 +41,7 @@ public partial class Imputation
     [ForeignKey("IdRecette")]
     [InverseProperty("Imputations")]
     public virtual Recette IdRecetteNavigation { get; set; }
+
+    [InverseProperty("IdImputationNavigation")]
+    public virtual ICollection<ImputationIngredient> ImputationIngredients { get; set; } = new List<ImputationIngredient>();
 }

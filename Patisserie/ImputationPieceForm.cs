@@ -35,5 +35,15 @@ namespace Travail_Patisserie_LaDouche_Lessard
                 pieceDesireDGV.DataSource = resultats;
             }
         }
+
+        private void commandeGroupBox_Enter(object sender, EventArgs e)
+        {
+            choisirCommandeComboBox.ValueMember = "IdCommande";
+            choisirCommandeComboBox.DisplayMember = "Description";
+            using (var context = new LaDouceLessardContext())
+            {
+                choisirCommandeComboBox.DataSource = context.Commandes.ToList();
+            }
+        }
     }
 }

@@ -63,7 +63,7 @@
             rechercherPieceGroupBox.Margin = new Padding(3, 4, 3, 4);
             rechercherPieceGroupBox.Name = "rechercherPieceGroupBox";
             rechercherPieceGroupBox.Padding = new Padding(3, 4, 3, 4);
-            rechercherPieceGroupBox.Size = new Size(887, 345);
+            rechercherPieceGroupBox.Size = new Size(890, 345);
             rechercherPieceGroupBox.TabIndex = 0;
             rechercherPieceGroupBox.TabStop = false;
             rechercherPieceGroupBox.Text = "Rechercher une recette avec ou sans scanneur";
@@ -89,6 +89,7 @@
             // 
             // pieceDesireDGV
             // 
+            pieceDesireDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             pieceDesireDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             pieceDesireDGV.Location = new Point(21, 119);
             pieceDesireDGV.Margin = new Padding(3, 4, 3, 4);
@@ -124,11 +125,10 @@
             commandeGroupBox.Margin = new Padding(3, 4, 3, 4);
             commandeGroupBox.Name = "commandeGroupBox";
             commandeGroupBox.Padding = new Padding(3, 4, 3, 4);
-            commandeGroupBox.Size = new Size(887, 123);
+            commandeGroupBox.Size = new Size(890, 123);
             commandeGroupBox.TabIndex = 1;
             commandeGroupBox.TabStop = false;
             commandeGroupBox.Text = "Commande";
-            commandeGroupBox.Enter += commandeGroupBox_Enter;
             // 
             // choisirCommandeLabel
             // 
@@ -158,11 +158,10 @@
             employeGroupBox.Margin = new Padding(3, 4, 3, 4);
             employeGroupBox.Name = "employeGroupBox";
             employeGroupBox.Padding = new Padding(3, 4, 3, 4);
-            employeGroupBox.Size = new Size(887, 111);
+            employeGroupBox.Size = new Size(890, 111);
             employeGroupBox.TabIndex = 1;
             employeGroupBox.TabStop = false;
             employeGroupBox.Text = "Employé";
-            employeGroupBox.Enter += employeGroupBox_Enter;
             // 
             // choisirEmployeLabel
             // 
@@ -191,7 +190,6 @@
             choisirEmployeButton.TabIndex = 0;
             choisirEmployeButton.Text = "Choisir un employé";
             choisirEmployeButton.UseVisualStyleBackColor = true;
-            choisirEmployeButton.Click += choisirEmployeButton_Click;
             // 
             // quantiteLabel
             // 
@@ -208,7 +206,7 @@
             quatiteNUD.Location = new Point(133, 637);
             quatiteNUD.Margin = new Padding(3, 4, 3, 4);
             quatiteNUD.Name = "quatiteNUD";
-            quatiteNUD.Size = new Size(137, 27);
+            quatiteNUD.Size = new Size(140, 27);
             quatiteNUD.TabIndex = 3;
             // 
             // ajoutezImputationButton
@@ -217,16 +215,17 @@
             ajoutezImputationButton.Location = new Point(297, 633);
             ajoutezImputationButton.Margin = new Padding(3, 4, 3, 4);
             ajoutezImputationButton.Name = "ajoutezImputationButton";
-            ajoutezImputationButton.Size = new Size(200, 47);
+            ajoutezImputationButton.Size = new Size(203, 47);
             ajoutezImputationButton.TabIndex = 4;
             ajoutezImputationButton.Text = "Ajouter imputation";
             ajoutezImputationButton.UseVisualStyleBackColor = true;
+            ajoutezImputationButton.Click += ajoutezImputationButton_Click;
             // 
             // ImputationPieceForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 701);
+            ClientSize = new Size(933, 701);
             Controls.Add(ajoutezImputationButton);
             Controls.Add(quatiteNUD);
             Controls.Add(quantiteLabel);

@@ -2,6 +2,6 @@
 {
     public partial class Employe
     {
-        public string NomComplet => Prenom + " " + Nom;
+        public string NomComplet => Prenom + " " + Nom + ", " + AdresseCourriel;
     }
 }

@@ -71,6 +71,7 @@
             selectionEmployeComboBox.Name = "selectionEmployeComboBox";
             selectionEmployeComboBox.Size = new Size(484, 29);
             selectionEmployeComboBox.TabIndex = 5;
+            selectionEmployeComboBox.SelectedIndexChanged += selectionEmployeComboBox_SelectedIndexChanged;
             // 
             // rechercheEmployeTextBox
             // 
@@ -139,6 +140,7 @@
             enregisterModifEmployeButton.TabIndex = 10;
             enregisterModifEmployeButton.Text = "Enregistrer la modification";
             enregisterModifEmployeButton.UseVisualStyleBackColor = true;
+            enregisterModifEmployeButton.Click += enregisterModifEmployeButton_Click;
             // 
             // employeIdLabel
             // 
@@ -221,6 +223,7 @@
             Controls.Add(rechercheEmployeGroupBox);
             Name = "employeForm";
             Text = "employe";
+            Load += employeForm_Load;
             rechercheEmployeGroupBox.ResumeLayout(false);
             rechercheEmployeGroupBox.PerformLayout();
             modifEmployeGroupBox.ResumeLayout(false);

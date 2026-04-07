@@ -88,7 +88,7 @@ namespace Travail_Patisserie_LaDouche_Lessard
                     }
 
                     employe.Prenom = employePrenomTextBox.Text;
-                    employe.Nom = employePrenomTextBox.Text;
+                    employe.Nom = employeNomTextBox.Text;
                     employe.AdresseCourriel = employeEmailTextBox.Text;
 
                     context.SaveChanges();
@@ -97,7 +97,7 @@ namespace Travail_Patisserie_LaDouche_Lessard
 
                     selectionEmployeComboBox.DataSource = null;
                     employePrenomTextBox.Clear();
-                    employePrenomTextBox.Clear();
+                    employeNomTextBox.Clear();
                     employeEmailTextBox.Clear();
                 }
             }

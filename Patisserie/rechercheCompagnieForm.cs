@@ -69,11 +69,11 @@ namespace Travail_Patisserie_LaDouche_Lessard
 
                 var data = compagnieCommande?.Commandes.Select(c => new
                 {
-                    NomProjet = c.Nom,
+                    IdCommande = c.Nom,
                     Description = c.Description
                 }).ToList();
 
-                projetEagerDGV.DataSource = data;
+                commandeEagerDGV.DataSource = data;
             }
         }
 
@@ -115,11 +115,11 @@ namespace Travail_Patisserie_LaDouche_Lessard
 
                 var data = compagnieCommande.Commandes.Select(c => new
                 {
-                    NomProjet = c.Nom,
+                    IdCommande = c.Nom,
                     Description = c.Description
                 }).ToList();
 
-                projetExplicitDGV.DataSource = data;
+                commandeExplicitDGV.DataSource = data;
 
                 rechercheExplicitDGV.Columns["IdClient"].Visible = false;
             }

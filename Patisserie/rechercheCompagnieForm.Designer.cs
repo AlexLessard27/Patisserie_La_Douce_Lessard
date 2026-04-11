@@ -31,46 +31,50 @@
             groupBox1 = new GroupBox();
             rechercherEagerButton = new Button();
             nomCompagnieEagerTextBox = new TextBox();
-            nomCompagnieEager = new Label();
-            projetCompagnieEagerLabel = new Label();
-            projetEagerDGV = new DataGridView();
+            nomDuClientEager = new Label();
+            CommandeCompagnieEagerLabel = new Label();
+            commandeEagerDGV = new DataGridView();
             rechercheEagerDGV = new DataGridView();
             groupBox2 = new GroupBox();
             rechercherExplicitButton = new Button();
             nomCompagnieExplicitTextBox = new TextBox();
-            nomCompagnieExplicitLabel = new Label();
-            projetCompagnieExplicitLabel = new Label();
-            projetExplicitDGV = new DataGridView();
+            nomDuClientExplicitLabel = new Label();
+            CommandeCompagnieExplicitLabel = new Label();
+            commandeExplicitDGV = new DataGridView();
             rechercheExplicitDGV = new DataGridView();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)projetEagerDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)commandeEagerDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rechercheEagerDGV).BeginInit();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)projetExplicitDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)commandeExplicitDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rechercheExplicitDGV).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.AutoSize = true;
             groupBox1.Controls.Add(rechercherEagerButton);
             groupBox1.Controls.Add(nomCompagnieEagerTextBox);
-            groupBox1.Controls.Add(nomCompagnieEager);
-            groupBox1.Controls.Add(projetCompagnieEagerLabel);
-            groupBox1.Controls.Add(projetEagerDGV);
+            groupBox1.Controls.Add(nomDuClientEager);
+            groupBox1.Controls.Add(CommandeCompagnieEagerLabel);
+            groupBox1.Controls.Add(commandeEagerDGV);
             groupBox1.Controls.Add(rechercheEagerDGV);
             groupBox1.Font = new Font("Segoe UI", 12F);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(14, 16);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(532, 458);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(608, 632);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Recherche une compagnie (Eager)";
+            groupBox1.Text = "Recherche un client (Eager)";
             // 
             // rechercherEagerButton
             // 
-            rechercherEagerButton.Location = new Point(370, 68);
+            rechercherEagerButton.Location = new Point(410, 91);
+            rechercherEagerButton.Margin = new Padding(3, 4, 3, 4);
             rechercherEagerButton.Name = "rechercherEagerButton";
-            rechercherEagerButton.Size = new Size(156, 36);
+            rechercherEagerButton.Size = new Size(191, 48);
             rechercherEagerButton.TabIndex = 5;
             rechercherEagerButton.Text = "Rechercher Eager";
             rechercherEagerButton.UseVisualStyleBackColor = true;
@@ -78,67 +82,76 @@
             // 
             // nomCompagnieEagerTextBox
             // 
-            nomCompagnieEagerTextBox.Location = new Point(182, 33);
+            nomCompagnieEagerTextBox.Location = new Point(228, 44);
+            nomCompagnieEagerTextBox.Margin = new Padding(3, 4, 3, 4);
             nomCompagnieEagerTextBox.Name = "nomCompagnieEagerTextBox";
-            nomCompagnieEagerTextBox.Size = new Size(344, 29);
+            nomCompagnieEagerTextBox.Size = new Size(373, 34);
             nomCompagnieEagerTextBox.TabIndex = 4;
             // 
-            // nomCompagnieEager
+            // nomDuClientEager
             // 
-            nomCompagnieEager.AutoSize = true;
-            nomCompagnieEager.Location = new Point(6, 36);
-            nomCompagnieEager.Name = "nomCompagnieEager";
-            nomCompagnieEager.Size = new Size(170, 21);
-            nomCompagnieEager.TabIndex = 3;
-            nomCompagnieEager.Text = "Nom de la compagnie :";
+            nomDuClientEager.AutoSize = true;
+            nomDuClientEager.Location = new Point(7, 48);
+            nomDuClientEager.Name = "nomDuClientEager";
+            nomDuClientEager.Size = new Size(145, 28);
+            nomDuClientEager.TabIndex = 3;
+            nomDuClientEager.Text = "Nom du client :";
             // 
-            // projetCompagnieEagerLabel
+            // CommandeCompagnieEagerLabel
             // 
-            projetCompagnieEagerLabel.AutoSize = true;
-            projetCompagnieEagerLabel.Location = new Point(6, 274);
-            projetCompagnieEagerLabel.Name = "projetCompagnieEagerLabel";
-            projetCompagnieEagerLabel.Size = new Size(169, 21);
-            projetCompagnieEagerLabel.TabIndex = 2;
-            projetCompagnieEagerLabel.Text = "Projet de la compagnie";
+            CommandeCompagnieEagerLabel.AutoSize = true;
+            CommandeCompagnieEagerLabel.Location = new Point(7, 365);
+            CommandeCompagnieEagerLabel.Name = "CommandeCompagnieEagerLabel";
+            CommandeCompagnieEagerLabel.Size = new Size(263, 28);
+            CommandeCompagnieEagerLabel.TabIndex = 2;
+            CommandeCompagnieEagerLabel.Text = "Commande de la compagnie";
             // 
-            // projetEagerDGV
+            // commandeEagerDGV
             // 
-            projetEagerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projetEagerDGV.Location = new Point(6, 298);
-            projetEagerDGV.Name = "projetEagerDGV";
-            projetEagerDGV.Size = new Size(520, 150);
-            projetEagerDGV.TabIndex = 1;
+            commandeEagerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            commandeEagerDGV.Location = new Point(7, 397);
+            commandeEagerDGV.Margin = new Padding(3, 4, 3, 4);
+            commandeEagerDGV.Name = "commandeEagerDGV";
+            commandeEagerDGV.RowHeadersWidth = 51;
+            commandeEagerDGV.Size = new Size(594, 200);
+            commandeEagerDGV.TabIndex = 1;
             // 
             // rechercheEagerDGV
             // 
             rechercheEagerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            rechercheEagerDGV.Location = new Point(6, 119);
+            rechercheEagerDGV.Location = new Point(7, 159);
+            rechercheEagerDGV.Margin = new Padding(3, 4, 3, 4);
             rechercheEagerDGV.Name = "rechercheEagerDGV";
-            rechercheEagerDGV.Size = new Size(520, 135);
+            rechercheEagerDGV.RowHeadersWidth = 51;
+            rechercheEagerDGV.Size = new Size(594, 180);
             rechercheEagerDGV.TabIndex = 0;
             rechercheEagerDGV.SelectionChanged += rechercheEagerDGV_SelectionChanged;
             // 
             // groupBox2
             // 
+            groupBox2.AutoSize = true;
             groupBox2.Controls.Add(rechercherExplicitButton);
             groupBox2.Controls.Add(nomCompagnieExplicitTextBox);
-            groupBox2.Controls.Add(nomCompagnieExplicitLabel);
-            groupBox2.Controls.Add(projetCompagnieExplicitLabel);
-            groupBox2.Controls.Add(projetExplicitDGV);
+            groupBox2.Controls.Add(nomDuClientExplicitLabel);
+            groupBox2.Controls.Add(CommandeCompagnieExplicitLabel);
+            groupBox2.Controls.Add(commandeExplicitDGV);
             groupBox2.Controls.Add(rechercheExplicitDGV);
             groupBox2.Font = new Font("Segoe UI", 12F);
-            groupBox2.Location = new Point(560, 12);
+            groupBox2.Location = new Point(640, 16);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(551, 458);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(630, 632);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Recherche une compagnie (Explicit)";
+            groupBox2.Text = "Recherche un client (Explicit)";
             // 
             // rechercherExplicitButton
             // 
-            rechercherExplicitButton.Location = new Point(389, 68);
+            rechercherExplicitButton.Location = new Point(432, 91);
+            rechercherExplicitButton.Margin = new Padding(3, 4, 3, 4);
             rechercherExplicitButton.Name = "rechercherExplicitButton";
-            rechercherExplicitButton.Size = new Size(156, 36);
+            rechercherExplicitButton.Size = new Size(191, 48);
             rechercherExplicitButton.TabIndex = 6;
             rechercherExplicitButton.Text = "Rechercher Explicit";
             rechercherExplicitButton.UseVisualStyleBackColor = true;
@@ -146,81 +159,88 @@
             // 
             // nomCompagnieExplicitTextBox
             // 
-            nomCompagnieExplicitTextBox.Location = new Point(182, 30);
+            nomCompagnieExplicitTextBox.Location = new Point(218, 40);
+            nomCompagnieExplicitTextBox.Margin = new Padding(3, 4, 3, 4);
             nomCompagnieExplicitTextBox.Name = "nomCompagnieExplicitTextBox";
-            nomCompagnieExplicitTextBox.Size = new Size(363, 29);
+            nomCompagnieExplicitTextBox.Size = new Size(404, 34);
             nomCompagnieExplicitTextBox.TabIndex = 5;
             // 
-            // nomCompagnieExplicitLabel
+            // nomDuClientExplicitLabel
             // 
-            nomCompagnieExplicitLabel.AutoSize = true;
-            nomCompagnieExplicitLabel.Location = new Point(6, 33);
-            nomCompagnieExplicitLabel.Name = "nomCompagnieExplicitLabel";
-            nomCompagnieExplicitLabel.Size = new Size(170, 21);
-            nomCompagnieExplicitLabel.TabIndex = 4;
-            nomCompagnieExplicitLabel.Text = "Nom de la compagnie :";
+            nomDuClientExplicitLabel.AutoSize = true;
+            nomDuClientExplicitLabel.Location = new Point(7, 44);
+            nomDuClientExplicitLabel.Name = "nomDuClientExplicitLabel";
+            nomDuClientExplicitLabel.Size = new Size(145, 28);
+            nomDuClientExplicitLabel.TabIndex = 4;
+            nomDuClientExplicitLabel.Text = "Nom du client :";
             // 
-            // projetCompagnieExplicitLabel
+            // CommandeCompagnieExplicitLabel
             // 
-            projetCompagnieExplicitLabel.AutoSize = true;
-            projetCompagnieExplicitLabel.Location = new Point(6, 274);
-            projetCompagnieExplicitLabel.Name = "projetCompagnieExplicitLabel";
-            projetCompagnieExplicitLabel.Size = new Size(169, 21);
-            projetCompagnieExplicitLabel.TabIndex = 3;
-            projetCompagnieExplicitLabel.Text = "Projet de la compagnie";
+            CommandeCompagnieExplicitLabel.AutoSize = true;
+            CommandeCompagnieExplicitLabel.Location = new Point(7, 365);
+            CommandeCompagnieExplicitLabel.Name = "CommandeCompagnieExplicitLabel";
+            CommandeCompagnieExplicitLabel.Size = new Size(263, 28);
+            CommandeCompagnieExplicitLabel.TabIndex = 3;
+            CommandeCompagnieExplicitLabel.Text = "Commande de la compagnie";
             // 
-            // projetExplicitDGV
+            // commandeExplicitDGV
             // 
-            projetExplicitDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projetExplicitDGV.Location = new Point(6, 298);
-            projetExplicitDGV.Name = "projetExplicitDGV";
-            projetExplicitDGV.Size = new Size(539, 150);
-            projetExplicitDGV.TabIndex = 2;
+            commandeExplicitDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            commandeExplicitDGV.Location = new Point(7, 397);
+            commandeExplicitDGV.Margin = new Padding(3, 4, 3, 4);
+            commandeExplicitDGV.Name = "commandeExplicitDGV";
+            commandeExplicitDGV.RowHeadersWidth = 51;
+            commandeExplicitDGV.Size = new Size(616, 200);
+            commandeExplicitDGV.TabIndex = 2;
             // 
             // rechercheExplicitDGV
             // 
             rechercheExplicitDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            rechercheExplicitDGV.Location = new Point(6, 119);
+            rechercheExplicitDGV.Location = new Point(7, 159);
+            rechercheExplicitDGV.Margin = new Padding(3, 4, 3, 4);
             rechercheExplicitDGV.Name = "rechercheExplicitDGV";
-            rechercheExplicitDGV.Size = new Size(539, 135);
+            rechercheExplicitDGV.RowHeadersWidth = 51;
+            rechercheExplicitDGV.Size = new Size(616, 180);
             rechercheExplicitDGV.TabIndex = 1;
             rechercheExplicitDGV.SelectionChanged += rechercheExplicitDGV_SelectionChanged;
             // 
             // rechercheCompagnieForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1123, 480);
+            ClientSize = new Size(1283, 640);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "rechercheCompagnieForm";
             Text = "rechercheCompagnieForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)projetEagerDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)commandeEagerDGV).EndInit();
             ((System.ComponentModel.ISupportInitialize)rechercheEagerDGV).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)projetExplicitDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)commandeExplicitDGV).EndInit();
             ((System.ComponentModel.ISupportInitialize)rechercheExplicitDGV).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private DataGridView projetEagerDGV;
+        private DataGridView commandeEagerDGV;
         private DataGridView rechercheEagerDGV;
         private DataGridView rechercheExplicitDGV;
-        private Label projetCompagnieEagerLabel;
-        private Label projetCompagnieExplicitLabel;
-        private DataGridView projetExplicitDGV;
+        private Label CommandeCompagnieEagerLabel;
+        private Label CommandeCompagnieExplicitLabel;
+        private DataGridView commandeExplicitDGV;
         private Button rechercherEagerButton;
         private TextBox nomCompagnieEagerTextBox;
-        private Label nomCompagnieEager;
+        private Label nomDuClientEager;
         private Button rechercherExplicitButton;
         private TextBox nomCompagnieExplicitTextBox;
-        private Label nomCompagnieExplicitLabel;
+        private Label nomDuClientExplicitLabel;
     }
 }

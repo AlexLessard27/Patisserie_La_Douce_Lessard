@@ -75,6 +75,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[vueIngredientQuantitePrevu]",
+         "ObjectType": 3
+      },
+      {
          "Name": "[dbo].[Pro_AjouterImputationRecette]",
          "ObjectType": 1
       },
@@ -113,6 +117,5 @@
    "UseSchemaNamespaces": false,
    "UseSpatial": false,
    "UseT4": false,
-   "UseT4Split": false,
-   "UseTypedTvpParameters": true
+   "UseT4Split": false
 }

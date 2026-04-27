@@ -11,6 +11,9 @@ namespace Patisserie.Models;
 [Keyless]
 public partial class VueIngredientQuantitePrevu
 {
+    [Column("Id_Commande")]
+    public int IdCommande { get; set; }
+
     [Required]
     [StringLength(200)]
     [Unicode(false)]

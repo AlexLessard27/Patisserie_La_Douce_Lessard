@@ -66,6 +66,7 @@
             nomCommandeComboBox.Name = "nomCommandeComboBox";
             nomCommandeComboBox.Size = new Size(531, 23);
             nomCommandeComboBox.TabIndex = 2;
+            nomCommandeComboBox.SelectedIndexChanged += nomCommandeComboBox_SelectedIndexChanged;
             // 
             // ingredientLabel
             // 

@@ -32,6 +32,7 @@
             employéToolStripMenuItem = new ToolStripMenuItem();
             imputationDePièceToolStripMenuItem = new ToolStripMenuItem();
             rechercherUneCompagnieToolStripMenuItem = new ToolStripMenuItem();
+            quantitéDePièceToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,7 +45,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { employéToolStripMenuItem, imputationDePièceToolStripMenuItem, rechercherUneCompagnieToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { employéToolStripMenuItem, imputationDePièceToolStripMenuItem, rechercherUneCompagnieToolStripMenuItem, quantitéDePièceToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -71,6 +72,13 @@
             rechercherUneCompagnieToolStripMenuItem.Size = new Size(164, 20);
             rechercherUneCompagnieToolStripMenuItem.Text = "Rechercher une compagnie";
             rechercherUneCompagnieToolStripMenuItem.Click += rechercherUneCompagnieToolStripMenuItem_Click;
+            // 
+            // quantitéDePièceToolStripMenuItem
+            // 
+            quantitéDePièceToolStripMenuItem.Name = "quantitéDePièceToolStripMenuItem";
+            quantitéDePièceToolStripMenuItem.Size = new Size(143, 20);
+            quantitéDePièceToolStripMenuItem.Text = "Quantité de pièce (Vue)";
+            quantitéDePièceToolStripMenuItem.Click += quantitéDePièceToolStripMenuItem_Click;
             // 
             // label1
             // 
@@ -165,5 +173,6 @@
         private Label label4;
         private Label label5;
         private GroupBox groupBox1;
+        private ToolStripMenuItem quantitéDePièceToolStripMenuItem;
     }
 }

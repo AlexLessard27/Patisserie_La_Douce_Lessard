@@ -1,3 +1,5 @@
+using Patisserie;
+
 namespace Travail_Patisserie_LaDouche_Lessard
 {
     public partial class menuForm : Form
@@ -23,6 +25,12 @@ namespace Travail_Patisserie_LaDouche_Lessard
         {
             var compagnieForm = new rechercheCompagnieForm();
             compagnieForm.ShowDialog();
+        }
+
+        private void quantitéDePièceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var quantiteForm = new QuantiteDePieceAvecVueForm();
+            quantiteForm.ShowDialog();
         }
     }
 }

@@ -31,9 +31,9 @@ namespace Patisserie
                     .OrderBy(e => e.Nom)
                     .ToList();
             } 
-            catch 
+            catch (Exception ex)
             {
-                
+                MessageBox.Show("Erreur lors du chargement des commandes : " + ex.Message);
             }
         }
     }

@@ -69,8 +69,10 @@ namespace Patisserie
                     if (int.TryParse(cellule.Value.ToString(), out nouvelleValeur))
                     {            
                         var idCommande = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdCommande"].Value;
+                        var idRecette = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdRecette"].Value;
+                        var idIngredient = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdIngredient"].Value;
 
-                        Enregistrer(idCommande, nouvelleValeur);
+                        Enregistrer(idCommande, idRecette, idIngredient, nouvelleValeur);
                     }
                 }
                 else
@@ -80,7 +82,7 @@ namespace Patisserie
             } 
         }
 
-        private void Enregistrer(object? idCommande, int nouvelleValeur)
+        private void Enregistrer(object? idCommande, object? idRecette, object? idIngredient, int nouvelleValeur)
         {
             if (idCommande == null)
             {

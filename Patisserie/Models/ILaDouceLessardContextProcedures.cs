@@ -16,6 +16,6 @@ namespace Patisserie.Models
         Task<int> Pro_AjouterImputationRecetteAsync(DateOnly? date_Imputation, decimal? quantite_Reservee, int? id_Commande, int? id_Employe, int? id_Recette, int? id_Magasin, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<Pro_ObtenirCommandesParRecetteResult>> Pro_ObtenirCommandesParRecetteAsync(int? id_Recette, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<Pro_RechercherRecettesResult>> Pro_RechercherRecettesAsync(string recherche, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<int> Pro_SupprimerRecetteAsync(int? id_Recette, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> Pro_SupprimerCommandeAsync(int? id_Commande, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

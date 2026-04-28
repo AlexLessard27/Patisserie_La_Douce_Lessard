@@ -46,7 +46,7 @@ namespace Patisserie
                     return;
                 }
 
-                int idCommande = (int)nomCommandeComboBox.SelectedIndex;
+                int idCommande = (int)nomCommandeComboBox.SelectedValue!;
 
                 using var context = new LaDouceLessardContext();
 
@@ -57,6 +57,51 @@ namespace Patisserie
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur : " + ex.Message);
+            }
+        }
+
+        private async void detruireCommandeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ingredientsVueDGV.CurrentRow == null || ingredientsVueDGV.CurrentRow.DataBoundItem == null)
+                {
+                    MessageBox.Show("Veuillez sélectionner une commande à détruire.");
+                    return;
+                }
+
+                var elementSelectionne =
+                    (VueIngredientQuantitePrevu)ingredientsVueDGV.CurrentRow.DataBoundItem;
+
+                var confirmation = MessageBox.Show(
+                    "Voulez-vous vraiment détruire cette commande ?",
+                    "Confirmation de destruction",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmation != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                using var context = new LaDouceLessardContext();
+
+                await context.Procedures.Pro_SupprimerCommandeAsync(
+                    elementSelectionne.IdCommande
+                );
+
+                MessageBox.Show("Commande détruite avec succès.");
+
+                ingredientsVueDGV.DataSource = null;
+
+                nomCommandeComboBox.DataSource = context.Commandes
+                    .OrderBy(c => c.Nom)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la destruction de la commande : " + ex.Message);
             }
         }
     }

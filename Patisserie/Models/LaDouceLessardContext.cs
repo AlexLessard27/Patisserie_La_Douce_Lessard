@@ -47,18 +47,18 @@ public partial class LaDouceLessardContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=bd-tinfo;Initial Catalog=1438952_AL;Integrated Security=True; TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Data Source=LADOUCEURSTEVEN;Initial Catalog=LaDouceLessard;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Client>(entity =>
         {
-            entity.HasKey(e => e.IdClient).HasName("PK__Client__668DFF3F09D69D89");
+            entity.HasKey(e => e.IdClient).HasName("PK__Client__668DFF3F1FB99241");
         });
 
         modelBuilder.Entity<Commande>(entity =>
         {
-            entity.HasKey(e => e.IdCommande).HasName("PK__Commande__93349D68550303C5");
+            entity.HasKey(e => e.IdCommande).HasName("PK__Commande__93349D682E54DCEC");
 
             entity.HasOne(d => d.IdClientNavigation).WithMany(p => p.Commandes)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -67,7 +67,7 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<Compose>(entity =>
         {
-            entity.HasKey(e => new { e.IdIngredient, e.IdRecette }).HasName("PK__Compose__91D0C61B137970E0");
+            entity.HasKey(e => new { e.IdIngredient, e.IdRecette }).HasName("PK__Compose__91D0C61B01F04153");
 
             entity.HasOne(d => d.IdIngredientNavigation).WithMany(p => p.Composes)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -80,7 +80,7 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<Employe>(entity =>
         {
-            entity.HasKey(e => e.IdEmploye).HasName("PK__Employe__95080846EF3AFA67");
+            entity.HasKey(e => e.IdEmploye).HasName("PK__Employe__95080846609E3A20");
 
             entity.HasMany(d => d.IdCommandes).WithMany(p => p.IdEmployes)
                 .UsingEntity<Dictionary<string, object>>(
@@ -95,7 +95,7 @@ public partial class LaDouceLessardContext : DbContext
                         .HasConstraintName("FK__Prepare__Id_Empl__534D60F1"),
                     j =>
                     {
-                        j.HasKey("IdEmploye", "IdCommande").HasName("PK__Prepare__0C3B419065F01334");
+                        j.HasKey("IdEmploye", "IdCommande").HasName("PK__Prepare__0C3B41905B8CDFDD");
                         j.ToTable("Prepare");
                         j.IndexerProperty<int>("IdEmploye").HasColumnName("Id_Employe");
                         j.IndexerProperty<int>("IdCommande").HasColumnName("Id_Commande");
@@ -104,7 +104,7 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<Imputation>(entity =>
         {
-            entity.HasKey(e => e.IdImputation).HasName("PK__Imputati__F5CB1BFE1CABF238");
+            entity.HasKey(e => e.IdImputation).HasName("PK__Imputati__F5CB1BFEBE504A34");
 
             entity.HasOne(d => d.IdCommandeNavigation).WithMany(p => p.Imputations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -121,7 +121,7 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<ImputationIngredient>(entity =>
         {
-            entity.HasKey(e => e.IdImputationIngredient).HasName("PK__Imputati__724F6C8F68FE0970");
+            entity.HasKey(e => e.IdImputationIngredient).HasName("PK__Imputati__724F6C8F1530C07F");
 
             entity.HasOne(d => d.IdImputationNavigation).WithMany(p => p.ImputationIngredients)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -136,7 +136,7 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<Ingredient>(entity =>
         {
-            entity.HasKey(e => e.IdIngredient).HasName("PK__Ingredie__C39FEB49D6FF332A");
+            entity.HasKey(e => e.IdIngredient).HasName("PK__Ingredie__C39FEB498D6BF53F");
 
             entity.HasMany(d => d.IdUniteDeMesures).WithMany(p => p.IdIngredients)
                 .UsingEntity<Dictionary<string, object>>(
@@ -151,7 +151,7 @@ public partial class LaDouceLessardContext : DbContext
                         .HasConstraintName("FK__SeMesureE__Id_In__571DF1D5"),
                     j =>
                     {
-                        j.HasKey("IdIngredient", "IdUniteDeMesure").HasName("PK__SeMesure__F1B9452D721F8250");
+                        j.HasKey("IdIngredient", "IdUniteDeMesure").HasName("PK__SeMesure__F1B9452DB362C898");
                         j.ToTable("SeMesureEn");
                         j.IndexerProperty<int>("IdIngredient").HasColumnName("Id_Ingredient");
                         j.IndexerProperty<int>("IdUniteDeMesure").HasColumnName("Id_UniteDeMesure");
@@ -160,14 +160,14 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<LogTransaction>(entity =>
         {
-            entity.HasKey(e => e.IdLog).HasName("PK__LogTrans__5CF34298FC7E7F34");
+            entity.HasKey(e => e.IdLog).HasName("PK__LogTrans__5CF34298D53180EC");
 
             entity.Property(e => e.DateLog).HasDefaultValueSql("(getdate())");
         });
 
         modelBuilder.Entity<Magasin>(entity =>
         {
-            entity.HasKey(e => e.IdMagasin).HasName("PK__Magasin__A1268810D6396DE1");
+            entity.HasKey(e => e.IdMagasin).HasName("PK__Magasin__A126881040A41DE1");
         });
 
         modelBuilder.Entity<QuantiteStock>(entity =>
@@ -183,12 +183,12 @@ public partial class LaDouceLessardContext : DbContext
 
         modelBuilder.Entity<Recette>(entity =>
         {
-            entity.HasKey(e => e.IdRecette).HasName("PK__Recette__24F2D52415A35721");
+            entity.HasKey(e => e.IdRecette).HasName("PK__Recette__24F2D5248F461D10");
         });
 
         modelBuilder.Entity<UniteDeMesure>(entity =>
         {
-            entity.HasKey(e => e.IdUniteDeMesure).HasName("PK__UniteDeM__226AE642BD550860");
+            entity.HasKey(e => e.IdUniteDeMesure).HasName("PK__UniteDeM__226AE642B9165D2A");
         });
 
         modelBuilder.Entity<Utilise>(entity =>

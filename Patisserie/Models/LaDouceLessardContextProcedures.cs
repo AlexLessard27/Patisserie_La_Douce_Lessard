@@ -154,7 +154,7 @@ namespace Patisserie.Models
             return _;
         }
 
-        public virtual async Task<int> Pro_SupprimerRecetteAsync(int? id_Recette, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<int> Pro_SupprimerCommandeAsync(int? id_Commande, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -167,13 +167,13 @@ namespace Patisserie.Models
             {
                 new SqlParameter
                 {
-                    ParameterName = "Id_Recette",
-                    Value = id_Recette ?? Convert.DBNull,
+                    ParameterName = "Id_Commande",
+                    Value = id_Commande ?? Convert.DBNull,
                     SqlDbType = System.Data.SqlDbType.Int,
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[Pro_SupprimerRecette] @Id_Recette = @Id_Recette", sqlParameters, cancellationToken);
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[Pro_SupprimerCommande] @Id_Commande = @Id_Commande", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

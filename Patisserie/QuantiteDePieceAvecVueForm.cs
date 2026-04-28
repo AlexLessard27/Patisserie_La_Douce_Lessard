@@ -1,13 +1,5 @@
 ﻿using Patisserie.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Patisserie
 {
@@ -29,7 +21,7 @@ namespace Patisserie
                 nomCommandeComboBox.ValueMember = "IdCommande";
                 nomCommandeComboBox.DataSource = context.Commandes
                     .OrderBy(e => e.Nom)
-                    .ToList();
+                    .ToList();               
             }
             catch (Exception ex)
             {
@@ -46,17 +38,58 @@ namespace Patisserie
                     return;
                 }
 
-                int idCommande = (int)nomCommandeComboBox.SelectedIndex;
+                int idCommande = (int)nomCommandeComboBox.SelectedValue!;
 
                 using var context = new LaDouceLessardContext();
 
                 var resultat = context.VueIngredientQuantitePrevus.Where(v => v.IdCommande == idCommande).ToList();
 
                 ingredientsVueDGV.DataSource = resultat;
+
+                ingredientsVueDGV.ReadOnly = false;
+                ingredientsVueDGV.Columns["IdCommande"]!.ReadOnly = true;
+                ingredientsVueDGV.Columns["Description"]!.ReadOnly = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur : " + ex.Message);
+            }
+        }
+
+        private void ingredientsVueDGV_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ingredientsVueDGV.Columns[e.ColumnIndex].Name == "QuantitePrevue")
+            {
+                var cellule = ingredientsVueDGV.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                if (cellule.Value != null)
+                {
+                    int nouvelleValeur;
+
+                    if (int.TryParse(cellule.Value.ToString(), out nouvelleValeur))
+                    {            
+                        var idCommande = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdCommande"].Value;
+
+                        Enregistrer(idCommande, nouvelleValeur);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez entrer un nombre valide !");
+                }
+            } 
+        }
+
+        private void Enregistrer(object? idCommande, int nouvelleValeur)
+        {
+            if (idCommande == null)
+            {
+                return;
+            }
+
+            using (var context = new LaDouceLessardContext())
+            {
+               
             }
         }
     }

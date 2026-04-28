@@ -85,6 +85,7 @@
             ingredientsVueDGV.Name = "ingredientsVueDGV";
             ingredientsVueDGV.Size = new Size(553, 185);
             ingredientsVueDGV.TabIndex = 4;
+            ingredientsVueDGV.CellEndEdit += ingredientsVueDGV_CellEndEdit;
             // 
             // detruireCommandeButton
             // 

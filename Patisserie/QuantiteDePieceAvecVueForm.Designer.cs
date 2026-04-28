@@ -91,6 +91,7 @@
             ingredientsVueDGV.RowHeadersWidth = 51;
             ingredientsVueDGV.Size = new Size(632, 247);
             ingredientsVueDGV.TabIndex = 4;
+            ingredientsVueDGV.CellEndEdit += ingredientsVueDGV_CellEndEdit;
             // 
             // detruireCommandeButton
             // 

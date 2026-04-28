@@ -1,13 +1,5 @@
 ﻿using Patisserie.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Patisserie
 {
@@ -29,7 +21,7 @@ namespace Patisserie
                 nomCommandeComboBox.ValueMember = "IdCommande";
                 nomCommandeComboBox.DataSource = context.Commandes
                     .OrderBy(e => e.Nom)
-                    .ToList();
+                    .ToList();               
             }
             catch (Exception ex)
             {
@@ -53,6 +45,10 @@ namespace Patisserie
                 var resultat = context.VueIngredientQuantitePrevus.Where(v => v.IdCommande == idCommande).ToList();
 
                 ingredientsVueDGV.DataSource = resultat;
+
+                ingredientsVueDGV.ReadOnly = false;
+                ingredientsVueDGV.Columns["IdCommande"]!.ReadOnly = true;
+                ingredientsVueDGV.Columns["Description"]!.ReadOnly = true;
             }
             catch (Exception ex)
             {

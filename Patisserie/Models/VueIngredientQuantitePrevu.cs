@@ -27,7 +27,4 @@ public partial class VueIngredientQuantitePrevu
 
     [Column("Quantite_Prevue")]
     public int QuantitePrevue { get; set; }
-
-    [Column("Id_Ingredient")]
-    public int IdIngredient { get; set; }
 }

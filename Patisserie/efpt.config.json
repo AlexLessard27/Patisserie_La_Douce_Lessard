@@ -47,6 +47,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[LogTransaction]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Magasin]",
          "ObjectType": 0
       },
@@ -75,6 +79,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[vueIngredientQuantitePrevu]",
+         "ObjectType": 3
+      },
+      {
          "Name": "[dbo].[Pro_AjouterImputationRecette]",
          "ObjectType": 1
       },
@@ -84,6 +92,10 @@
       },
       {
          "Name": "[dbo].[Pro_RechercherRecettes]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Pro_SupprimerRecette]",
          "ObjectType": 1
       }
    ],

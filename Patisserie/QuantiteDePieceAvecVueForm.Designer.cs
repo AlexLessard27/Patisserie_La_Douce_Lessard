@@ -66,6 +66,7 @@
             nomCommandeComboBox.Name = "nomCommandeComboBox";
             nomCommandeComboBox.Size = new Size(531, 23);
             nomCommandeComboBox.TabIndex = 2;
+            nomCommandeComboBox.SelectedIndexChanged += nomCommandeComboBox_SelectedIndexChanged;
             // 
             // ingredientLabel
             // 
@@ -118,6 +119,7 @@
             Controls.Add(enregistrerButton);
             Name = "QuantiteDePieceAvecVueForm";
             Text = "Charger la quantité d'ingrédient pour un projet";
+            Load += QuantiteDePieceAvecVueForm_Load;
             ((System.ComponentModel.ISupportInitialize)ingredientsVueDGV).EndInit();
             nomCommandeGroupBox.ResumeLayout(false);
             nomCommandeGroupBox.PerformLayout();

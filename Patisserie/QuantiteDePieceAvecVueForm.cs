@@ -1,6 +1,7 @@
 ﻿using System.Data;
-using System.Windows.Input;
 using Patisserie.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Patisserie
 {
@@ -22,7 +23,7 @@ namespace Patisserie
                 nomCommandeComboBox.ValueMember = "IdCommande";
                 nomCommandeComboBox.DataSource = context.Commandes
                     .OrderBy(e => e.Nom)
-                    .ToList();               
+                    .ToList();
             }
             catch (Exception ex)
             {
@@ -34,12 +35,11 @@ namespace Patisserie
         {
             try
             {
-                if (nomCommandeComboBox == null)
+                if (nomCommandeComboBox.SelectedValue == null || nomCommandeComboBox.SelectedValue is not int idCommande)
                 {
+                    ingredientsVueDGV.DataSource = null;
                     return;
                 }
-
-                int idCommande = (int)nomCommandeComboBox.SelectedValue!;
 
                 using var context = new LaDouceLessardContext();
 
@@ -68,7 +68,7 @@ namespace Patisserie
                     int nouvelleValeur;
 
                     if (int.TryParse(cellule.Value.ToString(), out nouvelleValeur))
-                    {            
+                    {
                         var idCommande = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdCommande"].Value;
                         var idRecette = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdRecette"].Value;
                         var idIngredient = ingredientsVueDGV.Rows[e.RowIndex].Cells["IdIngredient"].Value;
@@ -80,12 +80,12 @@ namespace Patisserie
                 {
                     MessageBox.Show("Veuillez entrer un nombre valide !");
                 }
-            } 
+            }
         }
 
         private void Enregistrer(object? idCommande, object? idRecette, object? idIngredient, int nouvelleValeur)
         {
-            if (idCommande == null || idRecette ==  null || idIngredient == null)
+            if (idCommande == null || idRecette == null || idIngredient == null)
             {
                 return;
             }
@@ -121,12 +121,12 @@ namespace Patisserie
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show("Erreur lors de l'enregistrement : " + ex.Message);
 
                 RevenirAncienneValeur(Convert.ToInt32(idCommande), Convert.ToInt32(idRecette), idIngredient, null);
             }
-           
+
         }
 
         private void RevenirAncienneValeur(int idCommande, int idRecette, object idIngredient, int? ancienneValeur)
@@ -144,6 +144,96 @@ namespace Patisserie
                         break;
                     }
                 }
+            }
+        }
+
+        private void detruireCommandeButton_Click(object sender, EventArgs e)
+        {
+            if (nomCommandeComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une commande à détruire.");
+                return;
+            }
+
+            if (!int.TryParse(nomCommandeComboBox.SelectedValue.ToString(), out int idCommande))
+            {
+                MessageBox.Show("La commande sélectionnée est invalide.");
+                return;
+            }
+
+            string nomCommande = nomCommandeComboBox.Text;
+
+            DialogResult confirmation = MessageBox.Show(
+                $"Voulez-vous vraiment détruire la commande \"{nomCommande}\" et ses liens avec les recettes ?",
+                "Confirmation de destruction",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmation != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                using var context = new LaDouceLessardContext();
+
+                context.Database.ExecuteSqlRaw(
+                    "EXEC dbo.Pro_SupprimerCommande @Id_Commande = {0}",
+                    idCommande
+                );
+
+                MessageBox.Show("La commande a été détruite avec succès.");
+
+                RafraichirCommandes();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Suppression impossible",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erreur lors de la destruction de la commande : " + ex.Message,
+                    "Erreur",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+        private void RafraichirCommandes()
+        {
+            try
+            {
+                using var context = new LaDouceLessardContext();
+
+                var commandes = context.Commandes
+                    .OrderBy(c => c.Nom)
+                    .ToList();
+
+                nomCommandeComboBox.DataSource = null;
+
+                if (commandes.Count == 0)
+                {
+                    ingredientsVueDGV.DataSource = null;
+                    return;
+                }
+
+                nomCommandeComboBox.DisplayMember = "Nom";
+                nomCommandeComboBox.ValueMember = "IdCommande";
+                nomCommandeComboBox.DataSource = commandes;
+
+                nomCommandeComboBox.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du rafraîchissement des commandes : " + ex.Message);
             }
         }
     }

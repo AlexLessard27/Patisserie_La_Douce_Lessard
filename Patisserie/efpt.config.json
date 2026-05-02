@@ -47,6 +47,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[LogTransaction]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Magasin]",
          "ObjectType": 0
       },
@@ -89,6 +93,10 @@
       {
          "Name": "[dbo].[Pro_RechercherRecettes]",
          "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Pro_SupprimerCommande]",
+         "ObjectType": 1
       }
    ],
    "UiHint": null,
@@ -117,5 +125,6 @@
    "UseSchemaNamespaces": false,
    "UseSpatial": false,
    "UseT4": false,
-   "UseT4Split": false
+   "UseT4Split": false,
+   "UseTypedTvpParameters": true
 }

@@ -35,6 +35,7 @@
             ingredientsVueDGV = new DataGridView();
             detruireCommandeButton = new Button();
             nomCommandeGroupBox = new GroupBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)ingredientsVueDGV).BeginInit();
             nomCommandeGroupBox.SuspendLayout();
             SuspendLayout();
@@ -116,11 +117,21 @@
             nomCommandeGroupBox.TabStop = false;
             nomCommandeGroupBox.Text = "Rechercher une commande";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(643, 176);
+            label1.Name = "label1";
+            label1.Size = new Size(262, 20);
+            label1.TabIndex = 7;
+            label1.Text = "La commande #7 peut être supprimée";
+            // 
             // QuantiteDePieceAvecVueForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 569);
+            Controls.Add(label1);
             Controls.Add(nomCommandeGroupBox);
             Controls.Add(detruireCommandeButton);
             Controls.Add(ingredientsVueDGV);
@@ -146,5 +157,6 @@
         private DataGridView ingredientsVueDGV;
         private Button detruireCommandeButton;
         private GroupBox nomCommandeGroupBox;
+        private Label label1;
     }
 }

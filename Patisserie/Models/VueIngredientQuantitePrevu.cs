@@ -14,12 +14,6 @@ public partial class VueIngredientQuantitePrevu
     [Column("Id_Commande")]
     public int IdCommande { get; set; }
 
-    [Column("Id_Recette")]
-    public int IdRecette { get; set; }
-
-    [Column("Id_Ingredient")]
-    public int IdIngredient { get; set; }
-
     [Required]
     [StringLength(200)]
     [Unicode(false)]
